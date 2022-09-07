@@ -1,5 +1,5 @@
 #Latest version of node tested on.
-FROM node:16-alpine
+FROM node:lts-alpine
 
 RUN apk add --no-cache python3 g++ make
 
@@ -11,8 +11,8 @@ WORKDIR /app/services
 # where available (npm@5+)
 COPY package.json /app/services
 
-RUN npm i -g yarn --unsafe-perm
-RUN npm install -g pm2@2.3.0 --unsafe-perm
+RUN npm install -g npm@8.19.1
+RUN npm install -g pm2@2.3.0
 
 # If you are building your code for production
 # RUN yarn ci --only=production
@@ -20,9 +20,9 @@ RUN yarn install --production
 
 ENV NODE_ENV=production
 
-USER app
+USER root
 
 EXPOSE 9002
-CMD ["yarn", "prod"]
+CMD ["yarn", "start"]
 
 

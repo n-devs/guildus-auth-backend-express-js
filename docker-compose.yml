@@ -7,7 +7,7 @@ services:
     environment:
       - NODE_ENV=production
     ports:
-      - 9002:9002
+      - 9102:9002
     volumes:
        - ./:/app/services
     container_name: guildus-auth-backend-express-js
