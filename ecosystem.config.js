@@ -3,7 +3,7 @@ module.exports = {
     name: "guildus-auth-backend-express-js-prod",
     script: "./bin/www",
     exec_mode: 'cluster',
-    instances: 2,
+    instances: 1,
     env: {
       NODE_ENV: "production",
     }
