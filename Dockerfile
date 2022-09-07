@@ -13,6 +13,7 @@ COPY . /app
 
 RUN npm install -g npm@8.19.1
 RUN npm install -g pm2@2.3.0
+RUN npm install
 
 # If you are building your code for production
 # RUN yarn ci --only=production
