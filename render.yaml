@@ -1,7 +1,7 @@
 services:
   # A background worker that consumes a queue
   - type: worker
-    name: guildus-auth-backend-express-js-prod
+    name: guildus-auth-backend-express-js-production
     repo: https://github.com/n-devs/guildus-auth-backend-express-js.git # optional
     env: docker
     plan: free
