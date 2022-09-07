@@ -1,7 +1,6 @@
 #Latest version of node tested on.
 FROM node:16-alpine
 
-RUN apt-get update && apt-get install -y locales
 RUN apk add --no-cache python2 g++ make
 
 # Create app directory
