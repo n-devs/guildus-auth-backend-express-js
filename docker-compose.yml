@@ -1,0 +1,30 @@
+version: "2"
+
+services:
+  guildus-auth-backend-express-js:
+    build: ./
+    command: ["pm2-docker", "start", "ecosystem.config.js"]
+    environment:
+      - NODE_ENV=production
+    ports:
+      - 9002:9002
+    volumes:
+       - ./:/app/services
+    container_name: guildus-auth-backend-express-js
+    restart: always
+    networks:
+      - guildus-auth-backend-express-js-network
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    restart: always
+    image: mongo:4.2.0
+    volumes:
+      - ./data:/data/db
+    networks:
+      - guildus-auth-backend-express-js-network
+    expose:
+      - 27017
+networks:
+  guildus-auth-backend-express-js-network:
