@@ -1,6 +1,0 @@
-
-services:
-  # A Redis instance
-  - type: web
-    name: guildus-auth-backend-express-js
-    plan: free # optional (defaults to starter)
