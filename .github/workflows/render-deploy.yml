@@ -1,0 +1,32 @@
+name: Render Deploy Action
+on: push
+jobs:
+  run-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - run: npm clean-install
+      - name: "Run client unit tests"
+        run: npm test
+      - name: "Run server unit tests"
+        run: npm run test:server
+        env:
+          GITHUB_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          GITHUB_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          ENCRYPT_COOKIE_PASSWORD: ${{ secrets.ENCRYPT_COOKIE_PASSWORD }}
+          GITHUB_TOKEN_VALID: ${{ secrets.TOKEN_VALID }}
+          GITHUB_TOKEN_REVOKED: ${{ secrets.TOKEN_REVOKED }}
+  deploy:
+    needs: run-unit-tests
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Render Deploy Action
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
