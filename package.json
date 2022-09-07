@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "SET DEBUG=guildus-auth-backend-express-js:* & npm start",
     "test": "jest",
-    "test:server": "jest"
+    "test:server": "jest",
+    "test:coverage": "jest"
   },
   "dependencies": {
     "browserslist": "^4.21.3",
