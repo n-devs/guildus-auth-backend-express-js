@@ -1,7 +1,5 @@
 #Latest version of node tested on.
-FROM ubuntu:latest
-FROM python:2
-FROM node:lts-buster
+FROM node:16-alpine
 
 RUN apt-get update && apt-get install -y locales
 RUN apk add --no-cache python2 g++ make
