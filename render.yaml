@@ -7,8 +7,5 @@ services:
     dockerfilePath: ./Dockerfile # optional
     dockerContext: .
     branch: main # optional
-    domains:
-      - guildus-auth-backend-express-js.onrender.com
-      - guildus-auth-backend-express-js-prod.onrender.com
     autoDeploy: true # optional
     pullRequestPreviewsEnabled: true # optional
