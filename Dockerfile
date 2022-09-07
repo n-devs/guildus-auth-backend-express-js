@@ -1,7 +1,7 @@
 #Latest version of node tested on.
 FROM node:16-alpine
 
-RUN apk add --no-cache python2 g++ make
+RUN apk add --no-cache python3 g++ make
 
 # Create app directory
 WORKDIR /app/services
