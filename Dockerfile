@@ -28,6 +28,6 @@ ENV NODE_ENV=production
 USER root
 
 EXPOSE 9002
-CMD ["npm", "start"]
+CMD ["pm2-runtime", "start","ecosystem.config.js"]
 
 
