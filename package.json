@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "SET DEBUG=guildus-auth-backend-express-js:* & npm start",
-    "test": "jest"
+    "test": "jest",
+    "test:server": "node ./server.test.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
