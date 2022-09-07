@@ -1,3 +1,4 @@
+
 services:
   # A Redis instance
   - type: web
