@@ -1,0 +1,14 @@
+services:
+  # A background worker that consumes a queue
+  - type: worker
+    name: guildus-auth-backend-express-js-prod
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile # optional
+    dockerContext: .
+    branch: main # optional
+    domains:
+      - guildus-auth-backend-express-js.onrender.com
+      - guildus-auth-backend-express-js-prod.onrender.com
+    autoDeploy: true # optional
+    pullRequestPreviewsEnabled: true # optional
