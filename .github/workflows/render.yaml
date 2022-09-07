@@ -1,0 +1,9 @@
+services:
+  # A Redis instance
+  - type: web
+    name: guildus-auth-backend-express-js
+    ipAllowList: # required
+      - source: 0.0.0.0/0
+        description: everywhere
+    plan: free # optional (defaults to starter)
+    maxmemoryPolicy: noeviction # optional (defaults to allkeys-lru)
