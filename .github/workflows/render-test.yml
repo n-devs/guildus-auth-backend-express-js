@@ -13,6 +13,9 @@ jobs:
         run: npm run test:coverage
   deploy:
     needs: run-tests
+    environment:
+      name: 'Production'
+      url: https://api.render.com/deploy/srv-cccbq6pa6gdpn5ops7og?key=mIUE6nq9Jcg
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
