@@ -15,19 +15,19 @@ RUN npm install -g npm@8.19.1
 RUN npm install -g pm2
 RUN npm install
 
-# If you are building your code for production
-# RUN yarn ci --only=production
-# RUN yarn install --production
+# If you are building your code for test
+# RUN yarn ci --only=test
+# RUN yarn install --test
 # RUN yarn
 
 # Bundle app source
 # COPY . /app
 
-ENV NODE_ENV=production
+ENV NODE_ENV=test
 
 USER root
 
-EXPOSE 9002
+EXPOSE 9001
 CMD ["pm2-runtime", "ecosystem.config.js"]
 
 
