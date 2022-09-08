@@ -86,7 +86,7 @@ jobs:
         name: node-app
 
     - name: Render Deploy Action
-      id: ${{ secrets.RENDER_DEPLOY_ID }} 
+      id: dep-cccmmoirrk046i59ib2g
       uses: johnbeynon/render-deploy-action@v0.0.8
       with:
         service-id: ${{ secrets.RENDER_SERVICE_ID }}
