@@ -27,7 +27,7 @@ ENV NODE_ENV=development
 
 USER root
 
-EXPOSE 9002
+EXPOSE 9000
 CMD ["pm2-runtime", "ecosystem.config.js"]
 
 
