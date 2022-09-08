@@ -1,6 +1,6 @@
 module.exports = {
   apps : [{
-    name: "guildus-auth-backend-express-js-prod",
+    name: "guildus-auth-backend-express-js-dev",
     script: "./bin/www",
     exec_mode: 'cluster',
     instances: 1,
