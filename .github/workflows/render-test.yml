@@ -13,15 +13,15 @@ jobs:
         run: npm run test:coverage
   deploy:
     needs: run-tests
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
     environment:
       name: 'Production'
       url: https://api.render.com/deploy/srv-cccbq6pa6gdpn5ops7og?key=mIUE6nq9Jcg
-    if: github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Render Deploy Action
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
-          service-id: rnd_XiHJzKSmsgpRfXpoGTw1gybS9sQY
-          api-key: rnd_XiHJzKSmsgpRfXpoGTw1gybS9sQY
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
