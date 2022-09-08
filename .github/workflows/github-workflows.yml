@@ -19,9 +19,6 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
 
-permissions:
-  contents: read
-
 jobs:
 
   run-unit-tests:
