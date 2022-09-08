@@ -8,9 +8,9 @@ services:
     image: n-devs/guildus-auth-backend-express-js
     command: ["pm2-runtime", "ecosystem.config.js"]
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=beta
     ports:
-      - 9002:9002
+      - 9003:9003
     volumes:
        - ./:/app
     container_name: guildus-auth-backend-express-js
