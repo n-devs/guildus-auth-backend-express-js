@@ -71,13 +71,13 @@ jobs:
     needs: build
     environment:
       name: 'Development'
-      url: https://guildus-auth-backend-express-js.onrender.com
+      url: https://guildus-auth-backend-express-js-dev.onrender.com
 
     steps:
     - uses: actions/checkout@v3
 
     - name: Render Deploy Action
-      id: dep-cccnumcgqg42b1jl4leg
+      id: dep-ccco3skgqg42b1jl53i0"
       uses: johnbeynon/render-deploy-action@v0.0.8
       with:
         service-id: ${{ secrets.RENDER_SERVICE_ID }}
