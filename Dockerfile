@@ -15,15 +15,15 @@ RUN npm install -g npm@8.19.1
 RUN npm install -g pm2
 RUN npm install
 
-# If you are building your code for production
-# RUN yarn ci --only=production
-# RUN yarn install --production
+# If you are building your code for development
+# RUN yarn ci --only=development
+# RUN yarn install --development
 # RUN yarn
 
 # Bundle app source
 # COPY . /app
 
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 
 USER root
 
