@@ -16,7 +16,7 @@
 # For more information on GitHub Actions for Azure: https://github.com/Azure/Actions
 # For more information on the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # For more samples to get started with GitHub Action workflows to deploy to Azure: https://github.com/Azure/actions-workflow-samples
-name: ci
+name: CI/CD
 
 on:
   push:
@@ -24,7 +24,7 @@ on:
   workflow_dispatch:
 
 env:
-  NODE_VERSION: '1.x'                # set this to the node version to use
+  NODE_VERSION: '16.x'                # set this to the node version to use
 
 permissions:
   contents: read
@@ -34,8 +34,8 @@ jobs:
   run-unit-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
       - run: npm clean-install
@@ -75,7 +75,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      url: https://guildus-auth-backend-express-js.onrender.com
 
     steps:
     - uses: actions/checkout@v3
@@ -84,6 +84,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: node-app
+        path: .
 
     - name: Render Deploy Action
       id: dep-cccmmoirrk046i59ib2g
