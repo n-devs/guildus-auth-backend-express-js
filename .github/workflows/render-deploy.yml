@@ -20,7 +20,7 @@ name: CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "test" ]
   workflow_dispatch:
 
 env:
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: run-unit-tests
     environment:
-      name: 'Production'
+      name: 'Test'
     steps:
     - uses: actions/checkout@v3
 
@@ -70,14 +70,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
-      url: https://guildus-auth-backend-express-js.onrender.com
+      name: 'Test'
+      url: https://guildus-auth-backend-express-js-test.onrender.com
 
     steps:
     - uses: actions/checkout@v3
 
     - name: Render Deploy Action
-      id: dep-cccnumcgqg42b1jl4leg
+      id: dep-ccco3acgqg42b1jl50u0
       uses: johnbeynon/render-deploy-action@v0.0.8
       with:
         service-id: ${{ secrets.RENDER_SERVICE_ID }}
