@@ -1,5 +1,4 @@
-name: CI/CD
-
+name: Render Deploy Action
 on: 
   schedule:
     - cron: '26 11 * * *'
