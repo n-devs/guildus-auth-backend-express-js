@@ -30,7 +30,7 @@ async function isRequest(req, res, next) {
       return next();
     }
   } catch (e) {
-    return res.send({
+    return  res.send({
       statusCode: 400,
       message:
         "The server cannot or will not process the request due to something that is perceived to be a client error",
@@ -39,9 +39,20 @@ async function isRequest(req, res, next) {
 }
 
 async function register(req, res, next) {
-  res.render("index", { title: "Express" });
+  try {
+    return res.send({
+      statusCode: 201,
+      message: "Created user ok!",
+    });
+  } catch (e) {
+    return res.send({
+      statusCode: 400,
+      message:
+        "The server cannot or will not process the request due to something that is perceived to be a client error",
+    });
+  }
 }
 /* POST Register. */
-router.post("/register",isRequest, register);
+router.post("/register", isRequest, register);
 
 module.exports = router;
