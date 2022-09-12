@@ -84,6 +84,6 @@ async function register(req, res, next) {
   }
 }
 /* POST Register. */
-router.post("/register", isRequire, isValidation, register);
+router.post("/register/email", isRequire, isValidation, register);
 
 module.exports = router;
